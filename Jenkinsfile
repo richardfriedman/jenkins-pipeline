@@ -1,8 +1,8 @@
 node {
 
     stage('source') {
-        // checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/richardfriedman/jenkins-pipeline.git']]])
-        echo 'Source step if using inline'
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/richardfriedman/jenkins-pipeline.git']]])
+        // echo 'Source step if using inline'
     }
     
     stage('deploy') {
