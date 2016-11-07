@@ -17,7 +17,7 @@ node {
             jmeterFile: 'Test Plan WordPress.jmx' , 
             jmeterVersion: '3.0', 
             jvmArgs: '', 
-            opts: '-Jserver_name=www.runsignup.com -Jloop_count=5 -Jusers=10', 
+            opts: '-Jserver_name=wordpress.org -Jloop_count=5 -Jusers=10', 
             servers: 
             [
                 [
