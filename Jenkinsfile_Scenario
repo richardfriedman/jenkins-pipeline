@@ -1,0 +1,24 @@
+node {
+
+    stage('source') {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/richardfriedman/jenkins-pipeline.git']]])
+        // echo 'Source step if using inline'
+    }
+    
+    stage('deploy') {
+        echo 'Deploy test or staging environments.'
+    }
+
+    stage('perftest') {
+        redlineJMeter( 
+            templateId: '3d19933910a7ebd4f2b8716c8c1b2db6',
+            thresholds: 
+            [
+                errorFailedThreshold: 0, 
+                errorUnstableThreshold: 0, 
+                responseTimeFailedThreshold: 0, 
+                responseTimeUnstableThreshold: 0
+            ]
+        )
+    }
+}
