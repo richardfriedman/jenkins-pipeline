@@ -84,3 +84,13 @@ Define the thresholds to use for marking build failed or unstable.
                 responseTimeUnstableThreshold: 0
             ]
 ```
+
+# Getting Started
+### Install the plugin
+The HPI is made avialable in this demo project.  This HPI will replace the existing RedLine13 Jenkins plugin.
+
+### API Key
+You will need to generate an API key located at https://www.redline13.com/Account/apikey.
+-- Do not use the plugin on that page, that is the older plugin
+
+
