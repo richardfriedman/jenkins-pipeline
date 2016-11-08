@@ -1,6 +1,8 @@
-# Example for Jenkins Pipeline with RedLine13 Plugin
+# Jenkins Pipeline with RedLine13 Plugin
 
+# Steps Supported
 These are the current steps supported: 
+- Direct access to builders are available as well.
 
 - redlineJMeter - Executes a JMeter test
 - redlineGatling - Executes a Gatling test
@@ -93,4 +95,9 @@ The HPI is made avialable in this demo project.  This HPI will replace the exist
 You will need to generate an API key located at https://www.redline13.com/Account/apikey.
 -- Do not use the plugin on that page, that is the older plugin
 
+### Examples
+* Jenkinsfile_JMeter_WP - Runs a JMeter test 
+* Jenkinsfile_Gatling - Gatling Test
+* Jenkinsfile_Scenario - Scenario Test
+* Jenkinsfile_CustomNodeJs - Custom Test nodejs
 
