@@ -10,11 +10,11 @@ node {
     }
 
     stage('perftest') {
-        redlineGatling( 
-            name: 'Gatling From Jenkins Pipeline', 
+        redlineCustom( 
+            name: 'Gatling FromJ enkins Pipeline', 
             desc: 'Started from the pipeline project', 
             storeOutput: true,
-            masterFile: 'tests/PlexifySimulation220.scal' , 
+            masterFile: 'Test Plan WordPress.jmx' , 
             version: '2.2.0', 
             opts: '-Jserver_name=wordpress.org -Jloop_count=5 -Jusers=10', 
             servers: 
