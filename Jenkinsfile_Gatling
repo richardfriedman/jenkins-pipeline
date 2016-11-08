@@ -15,8 +15,7 @@ node {
             desc: 'Started from the pipeline project', 
             storeOutput: true,
             masterFile: 'tests/PlexifySimulation220.scala' , 
-            version: '2.2.0', 
-            opts: '-Jserver_name=wordpress.org -Jloop_count=5 -Jusers=10', 
+            version: '2.2.0',
             servers: 
             [
                 [
