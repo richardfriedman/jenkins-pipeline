@@ -10,13 +10,12 @@ node {
     }
 
     stage('perftest') {
-        redlineJMeter( 
-            name: 'HotPipe', 
+        redlineGatling( 
+            name: 'Gatling FromJ enkins Pipeline', 
             desc: 'Started from the pipeline project', 
             storeOutput: true,
-            jmeterFile: 'Test Plan WordPress.jmx' , 
-            jmeterVersion: '3.0', 
-            jvmArgs: '', 
+            masterFile: 'Test Plan WordPress.jmx' , 
+            version: '2.2.0', 
             opts: '-Jserver_name=wordpress.org -Jloop_count=5 -Jusers=10', 
             servers: 
             [
