@@ -10,7 +10,7 @@ node {
     }
 
     stage('perftest') {
-        RedlineJMeter( 
+        redlineJMeter( 
             name: 'HotPipe', 
             desc: 'Started from the pipeline project', 
             storeOutput: true,
