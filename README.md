@@ -1,11 +1,13 @@
 # Example for Jenkins Pipeline with RedLine13 Plugin
 
-as- redlineJMeter - Executes a JMeter test
+These are the current steps supported: 
+
+- redlineJMeter - Executes a JMeter test
 - redlineGatling - Executes a Gatling test
 - redlineCustom - Executes a custom PHP, Python, NodeJS tests
 - redlineScenario - Executes an existing template already on RedLine13
 
-All tests are configured with 4 sets of parametersddddd
+# Parameters can be grouped into 4 categories
 
 ## Generic 
 - name - name of load tests
@@ -21,7 +23,7 @@ All tests are configured with 4 sets of parametersddddd
 See the snippet generator for each test type, they each have custom parameters
 - Files are relative to the workspace, which will usually be the root of your SCM checkout.
 
-### JMeter
+#### JMeter
 ```
             masterFile: 'Test Plan WordPress.jmx' , 
             version: '3.0',
@@ -30,7 +32,7 @@ See the snippet generator for each test type, they each have custom parameters
             extraFiles: [  [extraFile: 'my.csv'], [extraFile: 'or-some.list']]
 ```
 
-### Gatling
+#### Gatling
 ```
             masterFile: 'Test Plan WordPress.jmx' , 
             version: '2.2.0',
@@ -39,13 +41,13 @@ See the snippet generator for each test type, they each have custom parameters
             extraFiles: [  [extraFile: 'my.csv'], [extraFile: 'or-some.list']]
 ```
 
-### Custom
+#### Custom
 ```
             masterFile: 'myCustomTest.js',
             language: 'nodejs'
 ```
 
-### Scenario
+#### Scenario
 ```
             templateId: ''
 ```
