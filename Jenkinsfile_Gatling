@@ -14,7 +14,7 @@ node {
             name: 'Gatling From Jenkins Pipeline', 
             desc: 'Started from the pipeline project', 
             storeOutput: true,
-            masterFile: 'tests/PlexifySimulation220.scal' , 
+            masterFile: 'tests/PlexifySimulation220.scala' , 
             version: '2.2.0', 
             opts: '-Jserver_name=wordpress.org -Jloop_count=5 -Jusers=10', 
             servers: 
