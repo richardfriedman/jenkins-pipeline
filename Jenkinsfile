@@ -22,7 +22,7 @@ node {
             [
                 [
                     associatePublicIpAddress: true, 
-                    location: 'us-west-2', 
+                    location: 'us-east-1', 
                     numberServers: 1, 
                     securityGroupIds: '', 
                     size: 'm3.medium', 
