@@ -11,7 +11,7 @@ node {
 
     stage('perftest') {
         redlineJMeter( 
-            name: 'HotPipe', 
+            name: 'JMeter from Pipeline', 
             desc: 'Started from the pipeline project', 
             storeOutput: true,
             masterFile: 'tests/Test Plan WordPress.jmx' , 
