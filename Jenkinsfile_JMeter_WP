@@ -23,7 +23,7 @@ node {
                 [
                     associatePublicIpAddress: true, 
                     location: 'us-east-1', 
-                    numberServers: 1, 
+                    numberServers: 5, 
                     securityGroupIds: '', 
                     size: 'm3.medium', 
                     subnetId: '', 
