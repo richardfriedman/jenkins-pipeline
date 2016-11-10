@@ -10,7 +10,7 @@ node {
     }
 
     stage('perftest') {
-        redlineJMeter( 
+        redlineScenario( 
             templateId: '3d19933910a7ebd4f2b8716c8c1b2db6',
             thresholds: 
             [
