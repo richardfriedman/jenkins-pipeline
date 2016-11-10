@@ -36,10 +36,9 @@ See the snippet generator for each test type, they each have custom parameters
 
 #### Gatling
 ```
-            masterFile: 'Test Plan WordPress.jmx' , 
+            masterFile: 'Test Plan WordPress.scala' , 
             version: '2.2.0',
             opts: '',
-            jvm_args: '',
             extraFiles: [  [extraFile: 'my.csv'], [extraFile: 'or-some.list']]
 ```
 
