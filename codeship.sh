@@ -1,8 +1,10 @@
+
+
 curl https://www.redline13.com/Api/LoadTest \
   -H "X-Redline-Auth: ${REDLINE_API_KEY}" \
   -F testType=jmeter-test \
   -F name=CodeShipAndRedLine13 \
-  -F "file=@/Users/rfriedman/jenkins-pipeline/tests/Plexify.jmx" \
+  -F "file=@`pwd`/tests/Plexify.jmx" \
   -F numServers=2 \
   -F storeOutput=T \
   -F servers[0][location]=us-east-1 \
