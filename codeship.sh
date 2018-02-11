@@ -12,8 +12,8 @@ echo curl https://www.redline13.com/Api/LoadTest \
   -F servers[0][onDemand]=T \
   -F servers[0][usersPerServer]=1 
 
-jq --help 
-
 curl https://www.redline13.com/Api/LoadTest?loadTestId=55147 \
-  -H "X-Redline-Auth: ${REDLINE_API_KEY}"
+  -H "X-Redline-Auth: ${REDLINE_API_KEY}" | jq '.cancelled_time, .completed_time'
+
+
 
