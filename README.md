@@ -100,3 +100,4 @@ You will need to generate an API key located at https://www.redline13.com/Accoun
 * Jenkinsfile_Scenario - Scenario Test
 * Jenkinsfile_CustomNodeJs - Custom Test nodejs
 
+/** Trigger = 1 */
