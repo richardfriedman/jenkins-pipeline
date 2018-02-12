@@ -1,3 +1,8 @@
+## Variables to set in ENVIRONMENT
+TIMEOUT=${TIMEOUT:=900}
+SUCCESS_RATE=${SUCCESS_RATE:=0}
+RESPONSE_TIME=${RESPONSE_TIME:=10000}
+REDLINE_API_KEY=${REDLINE_API_KEY:='SET YOUR KEY'}
 
 ## Execute Load Test
 OUT=$(curl -s https://www.redline13.com/Api/LoadTest \
@@ -22,8 +27,7 @@ if [ "$LOADTEST" == "" ]; then
 fi
 
 ## Setup End Time to catch long running tests ( 900 seconds )
-secs=900
-endTime=$(( $(date +%s) + secs ))
+endTime=$(( $(date +%s) + TIMEOUT ))
 
 ## Loop until test completes or time is up and kill test.
 COMPLETE=false
@@ -45,8 +49,6 @@ fi
 echo "Test Report and Graphs can be viewed https://www.redline13.com/LoadTest/View/$LOADTEST"
 
 ## CHECK STATS FOR SUCCESS FAILURE
-SUCCESS_RATE=${SUCCESS_RATE:=0}
-RESPONSE_TIME=${RESPONSE_TIME:=10000}
 RESULT=$(curl -s https://www.redline13.com/Api/LoadTest?loadTestId=$LOADTEST \
   -H "X-Redline-Auth: ${REDLINE_API_KEY}") 
 PASS=$(echo $RESULT | jq '.[0].success_rate >= '$SUCCESS_RATE' and .[0].avg_resp_time < '$RESPONSE_TIME)
