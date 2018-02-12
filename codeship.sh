@@ -56,7 +56,7 @@ if [ $PASS != "true" ]; then
   echo "TEST DID NOT MEET REQUIREMENTS, FAIL - Check Load Test for detailed results"
   echo "Expecting SUCCESS RATE $SUCCESS_RATE ACTUAL $RATE"
   echo "Expecting RESPONSE TIME $RESPONSE_TIME ACTUAL $TIME"
-  echo $RESULT | jq 
+  echo $RESULT | jq .[]
   exit 1
 fi
 
