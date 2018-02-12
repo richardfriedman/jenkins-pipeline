@@ -50,9 +50,9 @@ RESPONSE_TIME=${RESPONSE_TIME:=10000}
 RESULT=$(curl -s https://www.redline13.com/Api/LoadTest?loadTestId=$LOADTEST \
   -H "X-Redline-Auth: ${REDLINE_API_KEY}") 
 PASS=$(echo $RESULT | jq '.[0].success_rate >= '$SUCCESS_RATE' and .[0].avg_resp_time < '$RESPONSE_TIME)
+RATE=$(echo $RESULT | jq '.[0].success_rate')
+TIME=$(echo $RESULT | jq '.[0].avg_resp_time')
 if [ $PASS != "true" ]; then
-  RATE=$(echo $RESULT | jq '.[0].success_rate')
-  TIME=$(echo $RESULT | jq '.[0].avg_resp_time')
   echo "TEST DID NOT MEET REQUIREMENTS, FAIL - Check Load Test for detailed results"
   echo "Expecting SUCCESS RATE $SUCCESS_RATE ACTUAL $RATE"
   echo "Expecting RESPONSE TIME $RESPONSE_TIME ACTUAL $TIME"
@@ -60,4 +60,5 @@ if [ $PASS != "true" ]; then
   exit 1
 fi
 
+echo "TEST PASSED RATE($RATE) RESPONSE TIME($TIME)"
 ## TODO show to access report data and check for specific endpoint metrics
