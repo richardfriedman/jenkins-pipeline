@@ -1,6 +1,6 @@
 
 ## Execute Load Test
-OUT=$(curl -vv -s https://www.redline13.com/Api/LoadTest \
+OUT=$(curl -s https://www.redline13.com/Api/LoadTest \
   -H "X-Redline-Auth: ${REDLINE_API_KEY}" \
   -F testType=jmeter-test \
   -F name=CodeShipAndRedLine13 \
