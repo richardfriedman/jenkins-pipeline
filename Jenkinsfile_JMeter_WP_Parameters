@@ -28,7 +28,7 @@ node {
                 [
                     associatePublicIpAddress: true,
                     location: 'us-east-1',
-                    numberServers: ${params.server_count}, 
+                    numberServers: 1, 
                     securityGroupIds: '',
                     size: 'm3.medium',
                     subnetId: '',
