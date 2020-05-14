@@ -1,0 +1,48 @@
+node {
+    parameters {
+      string( name: 'server_count',
+              defaultValue: '1',
+              description: 'Configure Server Count')
+    }
+
+    stage('source') {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/richardfriedman/jenkins-pipeline.git']]])
+        // echo 'Source step if using inline'
+    }
+
+    stage('deploy') {
+        echo 'Deploy test or staging environments.'
+    }
+
+    stage('perftest') {
+        redlineJMeter(
+            name: 'JMeter from Pipeline',
+            desc: 'Started from the pipeline project',
+            storeOutput: true,
+            masterFile: 'tests/Test Plan WordPress.jmx' ,
+            version: '3.0',
+            jvmArgs: '',
+            opts: '-Jserver_name=wordpress.org -Jloop_count=5 -Jusers=10',
+            servers:
+            [
+                [
+                    associatePublicIpAddress: true,
+                    location: 'us-east-1',
+                    numberServers: ${params.server_count}, 
+                    securityGroupIds: '',
+                    size: 'm3.medium',
+                    subnetId: '',
+                    useSpot: false,
+                    volumeSize: 8
+                ]
+            ],
+            thresholds:
+            [
+                errorFailedThreshold: 0,
+                errorUnstableThreshold: 0,
+                responseTimeFailedThreshold: 0,
+                responseTimeUnstableThreshold: 0
+            ]
+        )
+    }
+}
